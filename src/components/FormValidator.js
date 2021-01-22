@@ -1,5 +1,7 @@
 import React from "react";
 import { errorMessages } from "../constants/constants";
+import isEmail from "validator/lib/isEmail";
+import validator from "validator";
 
 export const FormValidator = () => {
   const [values, setValues] = React.useState({});
@@ -12,25 +14,14 @@ export const FormValidator = () => {
     const value = target.value;
     setValues({ ...values, [name]: value });
     setErrorMessage(target, name);
-    setIsValid(checkFormValidity(target));
+    setIsValid(target.closest("form").checkValidity());
   };
-
-  function checkFormValidity(target) {
-    if (target.name === "lang") {
-      if (target.closest("form").checkValidity() && target.value !== "Язык") {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
-  }
 
   function setErrorMessage(target, name) {
     if (target.validity.valid) {
       setErrors({ ...errors, [name]: "" });
     }
+
     if (target.validity.valueMissing) {
       if (target.name !== "lang") {
         setErrors({ ...errors, [name]: errorMessages.empty });
@@ -39,8 +30,10 @@ export const FormValidator = () => {
       }
     }
 
-    if (target.validity.typeMismatch && target.type === "email") {
-      setErrors({ ...errors, [name]: errorMessages.printEmail });
+    if (target.type === "email" && !validator.isEmail(target.value)) {
+      console.log(validator.isEmail(target.value));
+      setErrors({ ...errors, [name]: errorMessages.wrongEmail });
+      console.log(errors);
     }
 
     if (target.validity.patternMismatch) {
@@ -50,10 +43,11 @@ export const FormValidator = () => {
       if (target.type === "tel") {
         setErrors({ ...errors, [name]: errorMessages.wrongTelFormat });
       }
-    } else {
-      setErrors({ ...errors, [name]: errorMessages.validationMessage });
-    }
+    } 
+
+    // else {
+    //   setErrors({ ...errors, [name]: target.validationMessage });
+    // }
   }
-  console.log(isValid);
   return { values, handleChange, errors, isValid };
 };

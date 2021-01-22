@@ -1,6 +1,6 @@
 const errorMessages = {
   empty: "Это обязательное поле",
-  printEmail: "Введите действующий e-mail",
+  wrongEmail: "Введите действующий e-mail",
   takeLang: "Пожалуйста, выберите язык",
   wrongName: "Поле может содержать только буквы, дефис или пробел",
   wrongTelFormat:
