@@ -1,0 +1,148 @@
+.popup {
+  background-color: #fff;
+  margin: 40px 30px;
+}
+
+.popup__content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.popup__title {
+  font-family: IBMPlexSans, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  color: #2c2738;
+  margin: 0 0;
+}
+
+.popup__subtitle {
+  font-family: IBMPlexSans, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #2c2738;
+  margin: 0 0;
+  display: flex;
+  margin-bottom: 52px;
+}
+
+.popup__input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #dbe2ea;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.popup__input-name {
+  font-family: IBMPlexSans, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0 0;
+  color: #756f86;
+  padding-bottom: 8px;
+}
+
+.popup__select {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #dbe2ea;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-bottom: 34px;
+  padding-left: 16px;
+  color: #7c9cbf;
+  font-family: IBMPlexSans, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  padding-left: 16px;
+  appearance: none;
+  background-image: url(../../vendor/images/arrow.png);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.popup__select:focus {
+  outline-color: #0880ae;
+}
+
+.popup__option:hover {
+  background-color: red;
+}
+
+.popup__form {
+  width: 100%;
+}
+
+.popup__checkbox {
+  padding-bottom: 40px;
+}
+
+.popup__checkbox-text {
+  display: flex;
+  align-items: center;
+}
+
+.popup__checkbox-link {
+  font-family: IBMPlexSans, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #0880ae;
+  cursor: pointer;
+  padding: 0px 5px;
+}
+
+.popup__input:focus {
+  outline-color: #0880ae;
+}
+
+.popup__input::placeholder {
+  color: #7c9cbf;
+  font-family: IBMPlexSans, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  padding-left: 16px;
+}
+
+.popup__input-checkbox {
+  display: none;
+}
+
+.popup__checkbox-text::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin-right: 8px;
+  border: 1px solid #dbe2ea;
+  border-radius: 6px;
+}
+
+.popup__input-checkbox:checked + .popup__checkbox-text::before {
+  border: 2px solid #0880ae;
+  background-image: url(../../vendor/images/check.png);
+  background-position: center;
+  width: 28px;
+  height: 28px;
+  box-sizing: border-box;
+}
+
+.popup__error {
+  font-family: IBMPlexSans, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ff7171;
+  margin-bottom: 8px;
+  padding-top: 8px;
+}
+
+.popup__input-box {
+  padding-bottom: 17px;
+  padding-top: 17px;
+}

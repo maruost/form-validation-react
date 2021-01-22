@@ -1,0 +1,35 @@
+.button {
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  font-family: IBMPlexSans, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.button.button_entry {
+  color: #0880ae;
+  cursor: pointer;
+}
+
+.button_size_big {
+  width: 100%;
+}
+
+.button_active {
+  background-color: #0880ae;
+  color: #ebf4f8;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.button_inactive {
+  background-color: #dbe2ea;
+  color: #b1b5bf;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-weight: 500;
+  font-size: 16px;
+}
