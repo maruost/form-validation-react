@@ -14,40 +14,50 @@ export const FormValidator = () => {
     const value = target.value;
     setValues({ ...values, [name]: value });
     setErrorMessage(target, name);
-    setIsValid(target.closest("form").checkValidity());
+    setIsValid(checkFormValidity(target));
   };
 
+  function checkFormValidity(target) {
+    if (
+      target.closest("form").checkValidity() &&
+      document.querySelector("#lang").value
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   function setErrorMessage(target, name) {
-    if (target.validity.valid) {
-      setErrors({ ...errors, [name]: "" });
-    }
-
-    if (target.validity.valueMissing) {
-      if (target.name !== "lang") {
+    if (target.validity !== undefined) {
+      if (target.validity.valid) {
+        setErrors({ ...errors, [name]: "" });
+        return;
+      }
+      if (target.validity.valueMissing) {
         setErrors({ ...errors, [name]: errorMessages.empty });
+        return;
+      }
+
+      if (target.type === "email" && !validator.isEmail(target.value)) {
+        setErrors({ ...errors, [name]: errorMessages.wrongEmail });
+        return;
+      }
+
+      if (target.validity.patternMismatch) {
+        if (target.name === "user") {
+          setErrors({ ...errors, [name]: errorMessages.wrongName });
+          return;
+        }
+        if (target.type === "tel") {
+          setErrors({ ...errors, [name]: errorMessages.wrongTelFormat });
+          return;
+        }
       } else {
-        setErrors({ ...errors, [name]: errorMessages.takeLang });
+        setErrors({ ...errors, [name]: target.validationMessage });
+        return;
       }
     }
-
-    if (target.type === "email" && !validator.isEmail(target.value)) {
-      console.log(validator.isEmail(target.value));
-      setErrors({ ...errors, [name]: errorMessages.wrongEmail });
-      console.log(errors);
-    }
-
-    if (target.validity.patternMismatch) {
-      if (target.name === "user") {
-        setErrors({ ...errors, [name]: errorMessages.wrongName });
-      }
-      if (target.type === "tel") {
-        setErrors({ ...errors, [name]: errorMessages.wrongTelFormat });
-      }
-    } 
-
-    // else {
-    //   setErrors({ ...errors, [name]: target.validationMessage });
-    // }
   }
   return { values, handleChange, errors, isValid };
 };

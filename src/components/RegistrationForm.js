@@ -1,11 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom";
-// import "./index.css";
 import Form from "./Form";
 import { FormValidator } from "../components/FormValidator";
 
 function RegistrationForm(props) {
-  const { values, handleChange, errors, isValid, resetForm } = FormValidator();
+  const { handleChange, errors, isValid } = FormValidator();
+  const [isShown, setIsShown] = React.useState(false);
+
+  function showList() {
+    setIsShown(true);
+  }
+
+  function setInput(e) {
+    document.querySelector("#lang").value = e.target.value;
+    hideList();
+  }
+
+  function hideList() {
+    setIsShown(false);
+  }
 
   return (
     <Form
@@ -19,11 +31,12 @@ function RegistrationForm(props) {
         <input
           type="text"
           name="user"
-          className="popup__input popup__input_type_name"
+          className="popup__input"
           placeholder="Введите Ваше Имя"
           pattern="^([A-Za-zА-Яа-яЁё \-]+)$"
           required
           onChange={handleChange}
+          onFocus={handleChange}
         />
       </div>
       <span className="popup__error">{errors.user}</span>
@@ -32,10 +45,11 @@ function RegistrationForm(props) {
         <input
           type="email"
           name="email"
-          className="popup__input popup__input_type_email"
+          className="popup__input"
           placeholder="Введите ваш email"
           required
           onChange={handleChange}
+          onFocus={handleChange}
         />
       </div>
       <span className="popup__error">{errors.email}</span>
@@ -44,34 +58,77 @@ function RegistrationForm(props) {
         <input
           type="tel"
           name="tel"
-          className="popup__input popup__input_type_tel"
+          className="popup__input"
           placeholder="Введите номер телефона"
-          pattern='^\+?([()\-]*\d){11}[()\-]*$'
+          pattern="^\+?([()\-]*\d){11}[()\-]*$"
           required
           onChange={handleChange}
+          onFocus={handleChange}
         />
       </div>
       <span className="popup__error">{errors.tel}</span>
       <div className="popup__input-box">
         <h4 className="popup__input-name">Язык</h4>
-        <select
-          name="lang"
-          className="popup__select popup__select_type_name"
+        <input
+          className="popup__input"
           placeholder="Язык"
+          list=""
+          name="lang"
+          id="lang"
+          autoComplete="off"
           required
-          size="0"
-          onChange={handleChange}
+          onFocus={showList}
+          onBlur={(e) => {
+            setTimeout(hideList, 100);
+            handleChange(e);
+          }}
+          readOnly
+        />
+        <datalist
+          id="datalist"
+          className={
+            isShown
+              ? "popup__datalist popup__datalist_opened"
+              : "popup__datalist"
+          }
         >
-          <option disabled selected hidden>
-            Язык
-          </option>
-          <option className="popup__option" value="ru">
+          <option
+            className="popup__option"
+            onClick={(event) => {
+              setInput(event);
+              handleChange(event);
+            }}
+          >
             Русский
           </option>
-          <option value="en">Английский</option>
-          <option value="zh">Китайский</option>
-          <option value="es">Испанский</option>
-        </select>
+          <option
+            className="popup__option"
+            onClick={(event) => {
+              setInput(event);
+              handleChange(event);
+            }}
+          >
+            Английский
+          </option>
+          <option
+            className="popup__option"
+            onClick={(event) => {
+              setInput(event);
+              handleChange(event);
+            }}
+          >
+            Китайский
+          </option>
+          <option
+            className="popup__option"
+            onClick={(event) => {
+              setInput(event);
+              handleChange(event);
+            }}
+          >
+            Испанский
+          </option>
+        </datalist>
       </div>
       <span className="popup__error">{errors.lang}</span>
       <div className="popup__checkbox">
@@ -84,7 +141,11 @@ function RegistrationForm(props) {
           required
         />
         <label for="conditions" className="popup__checkbox-text">
-          Принимаю <a className="popup__checkbox-link">условия</a> использования
+          Принимаю{" "}
+          <a className="popup__checkbox-link" href="#">
+            условия
+          </a>{" "}
+          использования
         </label>
       </div>
       <button
