@@ -1,24 +1,23 @@
 {
   "files": {
-    "main.css": "/form-validation-react/static/css/main.f9f6ca9b.chunk.css",
-    "main.js": "/form-validation-react/static/js/main.4a7cfbe8.chunk.js",
-    "main.js.map": "/form-validation-react/static/js/main.4a7cfbe8.chunk.js.map",
-    "runtime-main.js": "/form-validation-react/static/js/runtime-main.615b0a94.js",
-    "runtime-main.js.map": "/form-validation-react/static/js/runtime-main.615b0a94.js.map",
-    "static/js/2.6fc5e2dc.chunk.js": "/form-validation-react/static/js/2.6fc5e2dc.chunk.js",
-    "static/js/2.6fc5e2dc.chunk.js.map": "/form-validation-react/static/js/2.6fc5e2dc.chunk.js.map",
-    "static/js/3.a0ddaf22.chunk.js": "/form-validation-react/static/js/3.a0ddaf22.chunk.js",
-    "static/js/3.a0ddaf22.chunk.js.map": "/form-validation-react/static/js/3.a0ddaf22.chunk.js.map",
+    "main.css": "/form-validation-react/static/css/main.9b662a4c.chunk.css",
+    "main.js": "/form-validation-react/static/js/main.233a91f8.chunk.js",
+    "main.js.map": "/form-validation-react/static/js/main.233a91f8.chunk.js.map",
+    "runtime-main.js": "/form-validation-react/static/js/runtime-main.7911e264.js",
+    "runtime-main.js.map": "/form-validation-react/static/js/runtime-main.7911e264.js.map",
+    "static/js/2.93cb8509.chunk.js": "/form-validation-react/static/js/2.93cb8509.chunk.js",
+    "static/js/2.93cb8509.chunk.js.map": "/form-validation-react/static/js/2.93cb8509.chunk.js.map",
+    "static/js/3.084455ce.chunk.js": "/form-validation-react/static/js/3.084455ce.chunk.js",
+    "static/js/3.084455ce.chunk.js.map": "/form-validation-react/static/js/3.084455ce.chunk.js.map",
     "index.html": "/form-validation-react/index.html",
-    "static/css/main.f9f6ca9b.chunk.css.map": "/form-validation-react/static/css/main.f9f6ca9b.chunk.css.map",
-    "static/js/2.6fc5e2dc.chunk.js.LICENSE.txt": "/form-validation-react/static/js/2.6fc5e2dc.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/form-validation-react/static/media/IBMPlexSans-Regular.0519459d.ttf",
-    "static/media/logo.6ce24c58.svg": "/form-validation-react/static/media/logo.6ce24c58.svg"
+    "static/css/main.9b662a4c.chunk.css.map": "/form-validation-react/static/css/main.9b662a4c.chunk.css.map",
+    "static/js/2.93cb8509.chunk.js.LICENSE.txt": "/form-validation-react/static/js/2.93cb8509.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/form-validation-react/static/media/IBMPlexSans-Regular.0519459d.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.615b0a94.js",
-    "static/js/2.6fc5e2dc.chunk.js",
-    "static/css/main.f9f6ca9b.chunk.css",
-    "static/js/main.4a7cfbe8.chunk.js"
+    "static/js/runtime-main.7911e264.js",
+    "static/js/2.93cb8509.chunk.js",
+    "static/css/main.9b662a4c.chunk.css",
+    "static/js/main.233a91f8.chunk.js"
   ]
 }
